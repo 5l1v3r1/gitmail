@@ -3,6 +3,6 @@ Quickly grab a GitHub users email from commits, even when their email privacy is
 
 **python main.py [username]**
 
-![pic1](https://i.imgur.com/UKHxLqM.jpg)
+![pic1](https://i.imgur.com/h98KKlJ.png)
 
-![pic2](https://i.imgur.com/0YlniLK.jpg)
+![pic2](https://i.imgur.com/XduMIwP.png)
