@@ -1,5 +1,6 @@
-import requests
+from collections import defaultdict
 import json
+import requests
 import sys
 
 banner = """
@@ -36,8 +37,8 @@ def main():
 
     print(" Username: " + username)
     print(" User ID: " + str(userid))
-    print(" Name: " + name)
-    print(" Location: " + location)
+    print(" Name: " + str(name))
+    print(" Location: " + str(location))
 
     if json_initial['email'] is None:
         print(" Email: Hidden")
@@ -46,7 +47,8 @@ def main():
         request2 = requests.get('https://api.github.com/users/' + username + '/events')
         json_two = json.loads(request2.content)
 
-        VALID_EMAILS = []
+        VALID_EMAILS = defaultdict(int)
+        max_email_len = 0
 
         for event in json_two:
             event_id = event['id']
@@ -55,10 +57,16 @@ def main():
                     commits = event['payload']['commits']
                     for commit in commits:
                         email = commit['author']['email']
-                        if email not in VALID_EMAILS:
-                            VALID_EMAILS = email
-
-        print(' [+] Email found: ' + VALID_EMAILS + '\n')
+                        VALID_EMAILS[email] += 1
+                        if len(email) > max_email_len:
+                            max_email_len = len(email)
+        if VALID_EMAILS:
+            print("{: <{pad}}\tTimes Seen".format('email', pad=max_email_len))
+            for email_cnt in sorted(VALID_EMAILS.items(), key=lambda ecnt: ecnt[1], reverse=True):
+                print("{: <{pad}}\t{}".format(pad=max_email_len, *email_cnt))
+            print()
+        else:
+            print(" No commits found with emails")
     else:
         print(" Email: " + json_initial['email'])
 
