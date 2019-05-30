@@ -62,7 +62,7 @@ def main():
                         if len(email) > max_email_len:
                             max_email_len = len(email)
         if VALID_EMAILS:
-            print("{: <{pad}}\tTimes Seen".format('email', pad=max_email_len))
+            print("{: <{pad}}\tTimes seen".format('Email', pad=max_email_len))
             for email_cnt in sorted(VALID_EMAILS.items(), key=lambda ecnt: ecnt[1], reverse=True):
                 print("{: <{pad}}\t{}".format(pad=max_email_len, *email_cnt))
             print()
