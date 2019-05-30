@@ -37,7 +37,7 @@ def main():
     print(" Username: " + username)
     print(" User ID: " + str(userid))
     print(" Name: " + name)
-    print(" Location: " + location)
+    print(" Location: " + str(location))
 
     if json_initial['email'] is None:
         print(" Email: Hidden")
