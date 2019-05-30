@@ -5,4 +5,4 @@ Quickly grab a GitHub users email from commits, even when their email privacy is
 
 ![pic1](https://i.imgur.com/h98KKlJ.png)
 
-![pic2](https://i.imgur.com/XduMIwP.png)
+![pic2](https://i.imgur.com/648HdWT.png)
