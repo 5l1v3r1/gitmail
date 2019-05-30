@@ -57,8 +57,11 @@ def main():
                         email = commit['author']['email']
                         if email not in VALID_EMAILS:
                             VALID_EMAILS = email
+        if "noreply.github.com" in VALID_EMAILS:
+            print(' [!] Could only locate a generic <user>@users.noreply.github.com email.')
+        else:
+            print(' [+] Email found: ' + VALID_EMAILS + '\n')
 
-        print(' [+] Email found: ' + VALID_EMAILS + '\n')
     else:
         print(" Email: " + json_initial['email'])
 
