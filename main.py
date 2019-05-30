@@ -57,6 +57,7 @@ def main():
                     commits = event['payload']['commits']
                     for commit in commits:
                         email = commit['author']['email']
+
                         VALID_EMAILS[email] += 1
                         if len(email) > max_email_len:
                             max_email_len = len(email)
@@ -67,6 +68,7 @@ def main():
             print()
         else:
             print(" No commits found with emails")
+
     else:
         print(" Email: " + json_initial['email'])
 
