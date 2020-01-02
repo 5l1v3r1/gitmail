@@ -1,5 +1,5 @@
 # gitmail
-Quickly grab a GitHub users email from commits, even when their email privacy is enabled. I know the code is shitty and rushed/messy but it works. :p
+Quickly grab a GitHub users email from commits if they have email privacy enabled on their profile :p
 
 **python main.py [username]**
 
